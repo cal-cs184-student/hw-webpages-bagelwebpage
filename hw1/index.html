@@ -58,21 +58,25 @@
 			If the point is inside the triangle, I call fill_pixel. Regarding the helper functions I created, they serve two purposes: improving code readability and providing functionality for rasterize triangle.
 			</p>
 
+			<pre>
 			<code>
 				auto line = [orientation](float x, float y, float xI, float yI, float dX, float dY)
 				{
 				return orientation * (-(x - xI) * dY + (y - yI) * dX);
 				};
 			</code>
+			</pre>
 
 			The line function calculates the equation of a line while also accounting for orientation to handle both clockwise and counterclockwise cases.
-			
+
+			<pre>
 			<code>
 				auto inside = [](float L0, float L1, float L2)
 				{
 				return (L0 >= 0) && (L1 >= 0) && (L2 >= 0);
 				};
 			</code>
+			</pre>
 			
 			<p>
 			The inside function implements the three-line test from the lecture. It checks whether all three line equations L1, L2, L2 contain the sample point.
