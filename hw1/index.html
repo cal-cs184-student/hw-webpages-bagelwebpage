@@ -51,13 +51,19 @@
 			Give a high-level overview of what you implemented in this homework. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the homework.
 
 			<h2>Task 1: Drawing Single-Color Triangles</h2>
+			<p>
+				When writing my code, I drew inspiration from the lecture material, specifically lecture 2, slides 35-52. These slides illustrate a double for-loop that iterates over the maximum bounds for x and y. If a sample point is inside the triangle, it is filled with a color.
+			</p>
 			
 			<p>
-			When writing my code, I drew inspiration from the lecture material, specifically lecture 2, slides 35-52. These slides illustrate a double for-loop that iterates over the maximum bounds for x and y. If a sample point is inside the triangle, it is filled with a color.
-			I made slight modifications to the for-loop, instead of iterating through the entire sample space, I start x and y at their minimum values. Inside the loops, I offset the sample points x and y coordinates by 0.5 and then compute three line equations to determine whether the sample point lies within the triangle. 
-			If the point is inside the triangle, I call fill_pixel. Regarding the helper functions I created, they serve two purposes: improving code readability and providing functionality for rasterize triangle.
+				I made slight modifications to the for-loop, instead of iterating through the entire sample space, I start x and y at their minimum values. Inside the loops, I offset the sample points x and y coordinates by 0.5 and then compute three line equations to determine whether the sample point lies within the triangle. 
+				If the point is inside the triangle, I call fill_pixel.
 			</p>
 
+			<p>
+				Regarding the helper functions I created, they serve two purposes: improving code readability and providing functionality for rasterize triangle.
+			</p>
+			
 			<pre>
 			<code>
 				auto line = [orientation](float x, float y, float xI, float yI, float dX, float dY)
