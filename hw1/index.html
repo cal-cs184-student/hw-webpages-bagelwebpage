@@ -86,34 +86,44 @@
 			The inside function implements the three-line test from the lecture. It checks whether all three line equations L1, L2, L2 contain the sample point.
 			</p>
 
-			<p>Here is an example 2x2 gridlike structure using an HTML table. Each <b>tr</b> is a row and each <b>td</b> is a column in that row. You might find this useful for framing and showing your result images in an organized fashion.</p>
 			<div style="display: flex; flex-direction: column; align-items: center;">
 				<table style="width: 100%; text-align: center; border-collapse: collapse;">
 					<tr>
 						<td style="text-align: center;">
-							<img src="lion.jpg" width="400px" />
-							<figcaption>Caption goes here.</figcaption>
+							<img src="task1.png" width="400px" />
 						</td>
-						<td style="text-align: center;">
-							<img src="lion.jpg" width="400px" />
-							<figcaption>Caption goes here.</figcaption>
-						</td>
-					</tr>
-					<tr>
-						<td style="text-align: center;">
-							<img src="lion.jpg" width="400px" />
-							<figcaption>Caption goes here.</figcaption>
-						</td>
-						<td style="text-align: center;">
-							<img src="lion.jpg" width="400px" />
-							<figcaption>Caption goes here.</figcaption>
-						</td>
+						
 					</tr>
 				</table>
 			</div>
 
 			<h2>Task 2: Antialiasing by Supersampling</h2>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<h3>Walk through your supersampling algorithm and data structures. Why is supersampling useful? What modifications did you make to the rasterization pipeline in the process? Explain how you used supersampling to antialias your triangles.</h3>
+			<p>To account for supersampling in rasterize_triangle(), I modified my code from Task 1 by adding an additional nested loop that iterates over the square root of the sample rate. Instead of directly filling a pixel on the screen based on whether it is inside the triangle, we now take multiple subsamples per pixel, average them, and write the final color to the provided sample_buffer</p>
+			<p>Several other functions also needed updates to support supersampling. For example, set_sample_rate() and set_framebuffer_target() were modified to account for the sample rate when calculating the buffer size, using width * height * sample_rate instead of just width * height.</p>
+			<p>Additionally, resolve_to_framebuffer() underwent significant changes to incorporate supersampling, ensuring that the final color values are averaged correctly before being written to the framebuffer.</p>
+
+			<div style="display: flex; flex-direction: column; align-items: center;">
+				<table style="width: 100%; text-align: center; border-collapse: collapse;">
+					<tr>
+						<td style="text-align: center;">
+							<img src="task2 1p.png" width="400px" />
+							<figcaption>Sample rate of 1</figcaption>
+						</td>
+						<td style="text-align: center;">
+							<img src="task2 4p.png" width="400px" />
+							<figcaption>Sample rate of 4</figcaption>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+							<img src="task2 16p.png" width="400px" />
+							<figcaption>Sample rate of 16</figcaption>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
 
 			<h2>Task 3: Transforms</h2>
 			<h3>Create an updated version of svg/transforms/robot.svg with cubeman doing something more interesting, like waving or running. Feel free to change his colors or proportions to suit your creativity. Save your svg file as my_robot.svg in your docs/ directory and show a png screenshot of your rendered drawing in your write-up. Explain what you were trying to do with cubeman in words.</h3>
@@ -130,12 +140,10 @@
 				</table>
 			</div>	
 
-			<p>My Cubeman is striking a hero pose inspired by the popular Japanese children's show Ultraman, with one arm to the side and the other raised to the sky. I also changed the head and parts of the legs and arms to gray to match Ultraman's color scheme.</p>
+			<p>My Cubeman is striking a rising hero pose inspired by the popular Japanese children's show Ultraman, with one arm to the side and the other raised to the sky. I also changed the head and parts of the legs and arms to gray to match Ultraman's color scheme.</p>
 			
 			<h2>Task 4: Barycentric coordinates</h2>
 			<h3>Explain barycentric coordinates in your own words and use an image to aid you in your explanation.</h3>
-
-			<p>From what I remember from the discussion, barycentric coordinates are kind of like a game of tug-of-war. For example, let's say we have three friends forming a triangle, and you're attached to three ropes being pulled by them. Your position is determined by how hard each friend is tugging. In other words, each vertex A,B,C has its own weights alpha, beta, and gamma which determine the position within the triangle.</p>
 			
 			<div style="display: flex; flex-direction: column; align-items: center;">
 				<table style="width: 100%; text-align: center; border-collapse: collapse;">
@@ -144,13 +152,13 @@
 							<img src="task4 explain.png" width="400px" />
 						</td>
 						<td style="text-align: center;">
-							<img src="task4 circle.png" width="400px" />
+							<img src="task4 ultraman.jpg" width="400px" />
 						</td>
 					</tr>
 				</table>
 			</div>			
 
-
+			<p>From what I remember from the discussion, barycentric coordinates are kind of like a game of tug-of-war. For example, let's say we have three friends forming a triangle, and you're attached to three ropes being pulled by them. Your position is determined by how hard each friend is tugging. In other words, each vertex A,B,C has its own weights alpha, beta, and gamma which determine the position within the triangle.</p>
 			
 			<h2>Task 5: "Pixel sampling" for texture mapping</h2>
 			<h3>Explain pixel sampling in your own words and describe how you implemented it to perform texture mapping. Briefly discuss the two different pixel sampling methods, nearest and bilinear. Comment on the relative differences. Discuss when there will be a large difference between the two methods and why.</h3>
