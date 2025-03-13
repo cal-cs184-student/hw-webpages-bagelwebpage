@@ -200,10 +200,67 @@
 		<p>I didn't have too many problems debugging. Most of the time, if I encountered a bug, it was due to an infinite loop caused by a bad condition I had set. There was also a time I had to double-check my split operation because some edges weren't splitting properly — turns out I had mistakenly assigned a pointer to the wrong spot. Which this time, I heavily used the Visual Studio debugger to step through the code rather than drawing a sketch of the process. </p>
 		
 		<h4>Take some notes, as well as some screenshots, of your observations on how meshes behave after loop subdivision. What happens to sharp corners and edges? Can you reduce this effect by pre-splitting some edges?</h4>
+		<p>As Loop subdivision progresses, hard edges tend to smooth out. As you continue dividing, the shape becomes smoother due to the increasing number of triangles. I did some pre-splitting on the cow's ears and found that it seemed to improve the surface smoothing, especially in the surrounding triangles.</p>
 			
 		<h4>Load dae/cube.dae. Perform several iterations of loop subdivision on the cube. Notice that the cube becomes slightly asymmetric after repeated subdivisions. Can you pre-process the cube with edge flips and splits so that the cube subdivides symmetrically? Document these effects and explain why they occur. Also explain how your pre-processing helps alleviate the effects.</h4>
-
-			
+		<p>When performing Loop subdivision on a cube, the shape starts to lose its symmetry after a few iterations. This happens because the original mesh has some uneven edge lengths and vertex connections, which become more noticeable with each subdivision step.</p>
+			<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part1_s0.png" width="400px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part1_s1.png" width="400px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part1_s2.png" width="400px"/>
+				</td>
+				  <td style="text-align: center;">
+				  <img src="part1_s3.png" width="400px"/>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part1_s4.png" width="400px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part1_s5.png" width="400px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part1_s6.png" width="400px"/>
+			  </tr>
+			</table>
+		</div>
+		<p>After flipping and splitting certain edges, it helped balance the mesh structure, allowing the cube to maintain a more symmetric and smoother shape throughout the subdivision process. The final result is a cleaner and more visually consistent model.</p>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part1_s0.png" width="400px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part1_s1.png" width="400px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part1_s2.png" width="400px"/>
+				</td>
+				  <td style="text-align: center;">
+				  <img src="part1_s3.png" width="400px"/>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part1_s4.png" width="400px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part1_s5.png" width="400px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part1_s6.png" width="400px"/>
+			  </tr>
+			</table>
+		</div>
 		</div>
 	</body>
 </html>
