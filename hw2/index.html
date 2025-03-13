@@ -68,7 +68,8 @@
 		
 			<li> \[ p_i' = \text{lerp}(p_i, p_{i+1}, t) = (1 - t) p_i + t p_{i+1} \] </li>
 			
-		For t in the range [0,1]. This process continues recursivley, reducing the number of points at each step until only a single point remains. That final point determines the position of the Bezier curve for a given t.
+		For t in the range [0,1]. This process continues recursivley, reducing the number of points at each step until only a single point remains. That final point determines the position of the Bezier curve for a given t. 
+		I essentially implemented this exact formula in evaluateStep within a for loop, and once calculated, I would push it to an intermediate vector to be returned.
 
 		
 
