@@ -129,10 +129,10 @@
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
 				<td style="text-align: center;">
-				  <img src="part1_s0.png" width="400px"/>
+				  <img src="part3_s0.png" width="400px"/>
 				</td>
 				<td style="text-align: center;">
-				  <img src="part1_s1.png" width="400px"/>
+				  <img src="part3_s1.png" width="400px"/>
 				</td>
 			</table>
 		</div>
@@ -146,10 +146,10 @@
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
 				<td style="text-align: center;">
-				  <img src="part1_s0.png" width="400px"/>
+				  <img src="part4_s0.png" width="400px"/>
 				</td>
 				<td style="text-align: center;">
-				  <img src="part1_s1.png" width="400px"/>
+				  <img src="part4_s1.png" width="400px"/>
 				</td>
 			</table>
 		</div>
@@ -170,17 +170,17 @@
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
 				<td style="text-align: center;">
-				  <img src="part1_s0.png" width="400px"/>
+				  <img src="part4_s0.png" width="400px"/>
 				</td>
 				<td style="text-align: center;">
-				  <img src="part1_s1.png" width="400px"/>
+				  <img src="part5_s0.png" width="400px"/>
 				</td>
 			</table>
 		</div>
 			
 		<h4>Show screenshots of a mesh before and after a combination of both edge splits and edge flips.</h4>
 		<figure>
-			<img src="part2_s0.png" alt="edited curve" style="width:50%"/>
+			<img src="part5_s1.png" alt="edited curve" style="width:50%"/>
 		</figure>
 			
 		<h4>Write about your eventful debugging journey, if you have experienced one.</h4>
@@ -201,66 +201,60 @@
 		
 		<h4>Take some notes, as well as some screenshots, of your observations on how meshes behave after loop subdivision. What happens to sharp corners and edges? Can you reduce this effect by pre-splitting some edges?</h4>
 		<p>As Loop subdivision progresses, hard edges tend to smooth out. As you continue dividing, the shape becomes smoother due to the increasing number of triangles. I did some pre-splitting on the cow's ears and found that it seemed to improve the surface smoothing, especially in the surrounding triangles.</p>
-			
-		<h4>Load dae/cube.dae. Perform several iterations of loop subdivision on the cube. Notice that the cube becomes slightly asymmetric after repeated subdivisions. Can you pre-process the cube with edge flips and splits so that the cube subdivides symmetrically? Document these effects and explain why they occur. Also explain how your pre-processing helps alleviate the effects.</h4>
-		<p>When performing Loop subdivision on a cube, the shape starts to lose its symmetry after a few iterations. This happens because the original mesh has some uneven edge lengths and vertex connections, which become more noticeable with each subdivision step.</p>
-			<div style="display: flex; flex-direction: column; align-items: center;">
-			<table style="width: 100%; text-align: center; border-collapse: collapse;">
-			  <tr>
-				<td style="text-align: center;">
-				  <img src="part1_s0.png" width="400px"/>
-				</td>
-				<td style="text-align: center;">
-				  <img src="part1_s1.png" width="400px"/>
-				</td>
-				<td style="text-align: center;">
-				  <img src="part1_s2.png" width="400px"/>
-				</td>
-				  <td style="text-align: center;">
-				  <img src="part1_s3.png" width="400px"/>
-				</td>
-			  </tr>
-			  <tr>
-				<td style="text-align: center;">
-				  <img src="part1_s4.png" width="400px"/>
-				</td>
-				<td style="text-align: center;">
-				  <img src="part1_s5.png" width="400px"/>
-				</td>
-				<td style="text-align: center;">
-				  <img src="part1_s6.png" width="400px"/>
-			  </tr>
-			</table>
-		</div>
-		<p>After flipping and splitting certain edges, it helped balance the mesh structure, allowing the cube to maintain a more symmetric and smoother shape throughout the subdivision process. The final result is a cleaner and more visually consistent model.</p>
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
 				<td style="text-align: center;">
-				  <img src="part1_s0.png" width="400px"/>
+				  <img src="part6_s0.png" width="400px"/>
 				</td>
 				<td style="text-align: center;">
-				  <img src="part1_s1.png" width="400px"/>
+				  <img src="part6_s1.png" width="400px"/>
 				</td>
 				<td style="text-align: center;">
-				  <img src="part1_s2.png" width="400px"/>
+				  <img src="part6_s2.png" width="400px"/>
 				</td>
 				  <td style="text-align: center;">
-				  <img src="part1_s3.png" width="400px"/>
+				  <img src="part6_s3.png" width="400px"/>
+				</td>
+				</td>
+				  <td style="text-align: center;">
+				  <img src="part6_s4.png" width="400px"/>
+				</td>
+			  </tr>
+			</table>
+		</div>
+			
+		<h4>Load dae/cube.dae. Perform several iterations of loop subdivision on the cube. Notice that the cube becomes slightly asymmetric after repeated subdivisions. Can you pre-process the cube with edge flips and splits so that the cube subdivides symmetrically? Document these effects and explain why they occur. Also explain how your pre-processing helps alleviate the effects.</h4>
+		<p>When performing Loop subdivision on a cube, the shape starts to lose its symmetry after a few iterations. This happens because the original mesh has some uneven edge lengths and vertex connections, which become more noticeable with each subdivision step.</p>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part7_s0.png" width="400px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part7_s1.png" width="400px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part7_s2.png" width="400px"/>
+				</td>
+				  <td style="text-align: center;">
+				  <img src="part7_s3.png" width="400px"/>
 				</td>
 			  </tr>
 			  <tr>
 				<td style="text-align: center;">
-				  <img src="part1_s4.png" width="400px"/>
+				  <img src="part7_s4.png" width="400px"/>
 				</td>
 				<td style="text-align: center;">
-				  <img src="part1_s5.png" width="400px"/>
+				  <img src="part7_s5.png" width="400px"/>
 				</td>
 				<td style="text-align: center;">
-				  <img src="part1_s6.png" width="400px"/>
+				  <img src="part7_s6.png" width="400px"/>
 			  </tr>
 			</table>
 		</div>
+		<p>After flipping and splitting certain edges, it helped balance the mesh structure, allowing the cube to maintain a more symmetric and smoother shape throughout the subdivision process. The final result is a cleaner and more visually consistent model.</p>
 		</div>
 	</body>
 </html>
