@@ -160,9 +160,21 @@
 		<p>In my implementation of the indirect lighting function, I handle both direct and indirect light by simulating bounces of light through a recursive algorithm. Initially, I calculate the radiance from the first bounce using a one_bounce_radiance function. From there, I check if further bounces are needed based on the depth of the ray and the isAccumBounces flag.</p>
 		<p>If isAccumBounces is true, the function continues recursively to simulate extra bounces of light. For each bounce, I sample the BSDF to get the direction of the outgoing light, create a new bounce ray, and trace it. If the ray intersects with a scene object, I recursively calculate its radiance and accumulate the result. To avoid endless recursion, I use Russian roulette termination with a probability of 0.3.</p>
 		<p>If isAccumBounces is false, the recursion stops as soon as we reach the required depth, returning only the radiance from that bounce.</p>
-		
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part4_0b.png" width="400px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part4_0s.png" width="400px"/>
+				</td>
+			  </tr>
+			</table>
+		</div>
+			
 		<h3>Pick one scene and compare rendered views first with only direct illumination, then only indirect illumination. Use 1024 samples per pixel. (You will have to edit PathTracer::at_least_one_bounce_radiance(...) in your code to generate these views.)</h3>
-			<div style="display: flex; flex-direction: column; align-items: center;">
+		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
 				<td style="text-align: center;">
