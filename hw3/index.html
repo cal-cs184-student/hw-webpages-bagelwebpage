@@ -46,7 +46,7 @@
 		-->
 
 		<h2>Overview</h2>
-		Give a high-level overview of what you implemented in this homework. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the homework.
+		<p>For this homework, I worked on building a ray tracing pipeline that covers everything from ray generation to adaptive sampling. I started by generating rays from the camera and checking for intersections with scene geometry, using the Möller-Trumbore algorithm for triangle intersections. Then, I built a BVH to speed up intersection tests, which made a huge difference in rendering time. For lighting, I implemented both hemisphere and importance sampling for direct lighting and created a function for indirect lighting that simulates light bounces. Finally, I added adaptive sampling to adjust how many samples I take based on the complexity of the lighting. Overall, I learned just how much BVH and adaptive sampling can speed up the process and make rendering more efficient.</p>
 
 		<h2>Part 1: Ray Generation and Scene Intersection</h2>
 		<h3>Walk through the ray generation and primitive intersection parts of the rendering pipeline.</h3>
@@ -56,8 +56,11 @@
 		<h3>Explain the triangle intersection algorithm you implemented in your own words.</h3>
 		<p>In this implementation, I used the Möller-Trumbore algorithm to efficiently check if a ray intersects a triangle. The key steps involve computing two edge vectors that define the triangle’s plane, followed by some cross products and dot products to calculate the intersection point. The algorithm uses barycentric coordinates to confirm the intersection lies inside the triangle.
 			If the intersection is valid, I update the ray’s maximum distance (max_t) and fill in the Intersection data with details listed on the spec.</p>
-		<h3>Show images with normal shading for a few small .dae files.</h3>
+		<figure>
+			<img src="Möller-Trumbore.png" alt="Möller-Trumbore" style="width:70%"/>
+		</figure>
 			
+		<h3>Show images with normal shading for a few small .dae files.</h3>	
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
@@ -109,8 +112,13 @@
 		<h2>Part 3: Direct Illumination</h2>
 		<h3>Walk through both implementations of the direct lighting function.</h3>
 		<p>In my hemisphere lighting implementation, I use a for loop to sample multiple directions from the hemisphere. For each sample, I get a random direction, transform it to world space, and create a shadow ray from the hit point. If the ray isn't blocked by anything, I calculate the light contribution based on the light source and the BRDF. After going through all the samples, I average the results to estimate the direct lighting. The loop helps gather enough samples to get a good approximation of the lighting.</p>
+		<figure>
+			<img src="uniform_BSDF.png" alt="uniform_BSDF" style="width:70%"/>
+		</figure>
 		<p>For my importance sampling function, I loop over each light in the scene, and for each light, I decide the number of samples based on whether it's a delta light or not. Then, I sample the direction from the light and calculate the distance and the PDF for that sample. If the light is in front of the surface, I create a shadow ray to check if there are any obstructions between the intersection point and the light. If the shadow ray isn’t blocked, I compute the contribution to the lighting using the BRDF and the light’s radiance. After looping through all the samples for each light, I average the results for non-delta lights to get a more accurate estimate.</p>
-			
+		<figure>
+			<img src="importance_BSDF.png" alt="importance_BSDF" style="width:70%"/>
+		</figure>
 		<h3>Show some images rendered with both implementations of the direct lighting function.</h3>
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
