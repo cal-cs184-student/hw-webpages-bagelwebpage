@@ -348,6 +348,9 @@
 			  </tr>
 			</table>
 		</div>
+		<p>With accumulated lighting, things start pretty similarly to the non-accumulated case. At Depth 0, we only see the direct light from the light source. Then, at Depth 1, the light starts bouncing around, and we get more of the room lit up, but the ceiling stays dark since the light hasn’t bounced there yet.</p>
+		<p>By Depth 2, the lighting looks more realistic because more light has bounced and built up over time. It’s a better representation of how light works in real life. But the changes start to get smaller. Even though we’re getting more light, each new bounce doesn’t change the scene as much as before.</p>
+		<p>As we keep increasing the depth, the lighting gets more realistic, but it doesn’t really change that much after a certain point. The shadows start looking more defined, and things get more lifelike, but after a few bounces, it’s pretty much the same. So, the effect of adding more bounces doesn’t really add much after a certain point.</p>
 		
 		<h2>Part 5: Adaptive Sampling</h2>
 		<h3>Explain adaptive sampling. Walk through your implementation of the adaptive sampling.</h3>
