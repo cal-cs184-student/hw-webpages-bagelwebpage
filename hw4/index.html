@@ -316,6 +316,7 @@
 		</div>
 			
 		<h3>Show a screenshot of bump mapping on the cloth and on the sphere. Show a screenshot of displacement mapping on the sphere. Use the same texture for both renders. You can either provide your own texture or use one of the ones in the textures directory, BUT choose one that’s not the default texture_2.png. Compare the two approaches and resulting renders in your own words. Compare how your the two shaders react to the sphere by changing the sphere mesh’s coarseness by using -o 16 -a 16 and then -o 128 -a 128.</h3>
+		<p>for the texture I decided to use texture_3.png</p>
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
@@ -336,6 +337,8 @@
 			</table>
 		</div>
 
+		<p>When comparing bump and displacement maps, the difference in coarseness is pretty clear. For bump maps, going from 16 to 128 doesn’t make a huge difference. If you look closely, 16 might have slightly rougher edges, but it’s not super noticeable. 
+			On the other hand, with displacement maps, the difference is much more obvious. At 16, the sphere looks chunky, while at 128, the shape is much smoother and more refined. So, bump maps show subtle changes, but displacement maps really affect the overall shape.</p>
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
