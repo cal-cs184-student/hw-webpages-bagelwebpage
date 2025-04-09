@@ -207,7 +207,8 @@
 			
 		<h2>Part 4: Handling self-collisions</h2>
 		<h3>Describe your implementation of handling self-collisions.</h3>
-		<p>I handle self-collisions by using spatial hashing to quickly find nearby point masses. For each point mass, I get its hash based on its position, then loop through nearby point masses to check if any are too close (less than twice the thickness). If they are, I calculate a correction vector to push them apart and accumulate these corrections. Once I've checked all nearby point masses, I average the corrections and apply the result to the point mass, scaling it down by the simulation steps to keep things smooth. This way, the cloth avoids clipping and looks more natural.</p>
+		<p>I handle self-collisions by using spatial hashing to quickly find nearby point masses. For each point mass, I get its hash based on its position, then loop through nearby point masses to check 
+		if any are too close (less than twice the thickness). If they are, I calculate a correction vector to push them apart and accumulate these corrections. Once I've checked all nearby point masses, I average the corrections and apply the result to the point mass, scaling it down by the simulation steps to keep things smooth. This way, the cloth avoids clipping and looks more natural.</p>
 		
 		<h3>Show us at least 3 screenshots that document how your cloth falls and folds on itself, starting with an early, initial self-collision and ending with the cloth at a more restful state (even if it is still slightly bouncy on the ground).</h3>
 		<div style="display: flex; flex-direction: column; align-items: center;">
@@ -227,7 +228,8 @@
 		</div>
 			
 		<h3>Vary the density as well as ks and describe with words and screenshots how they affect the behavior of the cloth as it falls on itself.</h3>
-		<table style="width: 100%; text-align: center; border-collapse: collapse;">
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
 				<td style="text-align: center;">
 				  <img src="part4_15den.png" width="300px"/>
@@ -246,7 +248,8 @@
 		</div>
 		<p>Cloth with higher density typically has more folds when falling. You can see a significant amount of folds compared to the cloth with a density of 500, while the cloth with a density of 1 has significantly fewer folds.
 			This shows that the lower the density, the fewer the folds. Higher densities experience a larger gravitational force, while lower densities aren't as affected by gravity.</p>
-		<table style="width: 100%; text-align: center; border-collapse: collapse;">
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
 				<td style="text-align: center;">
 				  <img src="part4_5000ks.png" width="300px"/>
@@ -297,7 +300,8 @@
 			</table>
 		</div>
 		<h3>Show a screenshot of your texture mapping shader using your own custom texture by modifying the textures in /textures/.</h3>
-		<table style="width: 100%; text-align: center; border-collapse: collapse;">
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
 				<td style="text-align: center;">
 				  <img src="part5_1sphere.png" width="300px"/>
@@ -310,8 +314,63 @@
 		</div>
 			
 		<h3>Show a screenshot of bump mapping on the cloth and on the sphere. Show a screenshot of displacement mapping on the sphere. Use the same texture for both renders. You can either provide your own texture or use one of the ones in the textures directory, BUT choose one that’s not the default texture_2.png. Compare the two approaches and resulting renders in your own words. Compare how your the two shaders react to the sphere by changing the sphere mesh’s coarseness by using -o 16 -a 16 and then -o 128 -a 128.</h3>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part5_2bump_sphere.png" width="300px"/>
+				  <figcaption>Bump Sphere: Default</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part5_2bump_cloth.png" width="300px"/>
+				  <figcaption>Bump cloth: Default</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part5_2dis.png" width="300px"/>
+				  <figcaption>Displacement: Default</figcaption>
+				</td>
+			  </tr>
 			
+			</table>
+		</div>
+
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part5_2bo16.png" width="300px"/>
+				  <figcaption>Bump: 16</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part5_2bo128.png" width="300px"/>
+				  <figcaption>Bump: 128</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part5_2do16.png" width="300px"/>
+				  <figcaption>Displacement: 16</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part5_2do128.png" width="300px"/>
+				  <figcaption>Displacement: 128</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
 		<h3>Show a screenshot of your mirror shader on the cloth and on the sphere.</h3>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part5_3m0.png" width="300px"/>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part5_3m1.png" width="300px"/>
+				</td>
+			  </tr>
+			</table>
+		</div>
 			
 		
 		<h2>(Optional) Part 6: Extra Credit - Additional cloth simulation features!</h2>
